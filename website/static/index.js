@@ -1,5 +1,5 @@
 function deleteCard(cardId){
-    fetch('delete-note', {
+    fetch('delete-card', {
         method: 'POST',
         body: JSON.stringify({cardId: cardId})
     }).then((_res)=>{
