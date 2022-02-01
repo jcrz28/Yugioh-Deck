@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+<title>{% block title %} Home {% endblock %}</title>
+
+{% block content %}
+<h1 align = "center">Yugioh Deck Recipe</h1>
+
+<form method = 'POST'>
+    <div class="form-row">
+        <div class="col">
+            <h3 align = "center">Main Deck</h3>
+            <input name = "card" id = "card" class = "form-control">
+        </div>
+        <div class="col">
+            <h3 align = "center">Quantity</h3>
+
+            <select name = "quantity" class="custom-select">
+                <option value="1" selected >1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>        
+        </div>
+    </div>
+    <ul class = "list-group list-group-flush" id = "cards">
+        {% for card in user.cards%}
+        <li class = "list-group-item">    {{card.data}} x {{card.quantity}}
+            <button type = "button" class = "close" onClick ="deleteCard({{ card.id}})">
+                <span aria-hidden = "true">&times;</span>
+            </button>
+        </li>
+        {% endfor %}
+    </ul>
+    <div align = "center">
+        <button type = "submit" class = "btn btn-primary" id = "main-deck-button">Add Card</button>
+    </div>
+
+</form>
+{% endblock %}
