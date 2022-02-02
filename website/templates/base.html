@@ -17,7 +17,8 @@
     href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     crossorigin="anonymous"
     />    
-
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
+    rel="stylesheet" type="text/css" />  
     <link rel="stylesheet" href="static\css\base.css"/>
 
     <title>{% block title %} Home {% endblock %}</title>
@@ -99,5 +100,23 @@
       src="{{ url_for('static', filename='index.js') }}"
     ></script>
 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">  
+    </script>  
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">  
+    </script>      
+    <script>
+      $( function() {
+        var availableTags = [
+            {% for language in languages %}
+                "{{language['name']}}",
+            {% endfor %}
+        ];
+        $( "#card" ).autocomplete({
+          source: availableTags
+        });
+      } );
+  </script>
 </body>
 </html>
