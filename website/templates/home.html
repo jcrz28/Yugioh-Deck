@@ -23,7 +23,8 @@
     </div>
     <ul class = "list-group list-group-flush" id = "cards">
         {% for card in user.cards%}
-        <li class = "list-group-item">    {{card.data}} x {{card.quantity}}
+        <li class = "list-group-item">    
+            <a href ="{{card.image_link}}" target="_blank">{{card.data}}</a>  x {{card.quantity}}
             <button type = "button" class = "close" onClick ="deleteCard({{ card.id}})">
                 <span aria-hidden = "true">&times;</span>
             </button>

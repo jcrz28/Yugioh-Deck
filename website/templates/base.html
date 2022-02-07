@@ -109,8 +109,8 @@
     <script>
       $( function() {
         var availableTags = [
-            {% for language in languages %}
-                "{{language['name']}}",
+            {% for  card_data in  card_data %}
+                "{{ card_data['name']}}",
             {% endfor %}
         ];
         $( "#card" ).autocomplete({

@@ -7,9 +7,10 @@ from sqlalchemy.sql import func
 
 class Card(db.Model):
     id = db.Column(db.Integer, primary_key = True)
-    data = db.Column(db.String(10000))
+    data = db.Column(db.String(150))
     date = db.Column(db.DateTime(timezone = True), default= func.now())
     quantity = db.Column(db.Integer)
+    image_link = db.Column(db.String(150))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 class User(db.Model, UserMixin):
